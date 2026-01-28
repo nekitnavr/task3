@@ -3,7 +3,7 @@ const app = express()
 const port = 3000
 
 function isNatural(num){
-    if (num > 0 && num%1==0 && Number.isInteger(num)) {
+    if (num > 0 && num%1==0) {
         return true;
     }
     return false;
