@@ -21,7 +21,7 @@ app.get('/nikita_navrotski_gmail_com', (req, res) => {
     let y = req.query.y;
     
     if ((isNatural(x)&&isNatural(y)) == false || x == '' || y == '') return res.send('NaN')
-    l = lcm(x,y)
+    l = lcm(x,y).toLocaleString('fullwide', { useGrouping: false })
 
     return res.send(l)
 })
