@@ -37,7 +37,6 @@ app.get('/nikita_navrotski_gmail_com', (req, res) => {
     
     if (isNatural(x) == false || isNatural(y) == false) return res.send('NaN');
     
-    // if ((isNatural(x)&&isNatural(y)) == false || x == '' || y == '') return res.send('NaN')
     const l = lcmBig(x,y).toString()
 
     return res.send(l)
