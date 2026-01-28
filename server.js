@@ -3,7 +3,7 @@ const app = express()
 const port = 3000
 
 function isNatural(num){
-    if (num<0 || num%1!=0) {
+    if (isNaN(num) || num<=0 || num%1!=0) {
       return false;
     }
     return true
@@ -21,7 +21,7 @@ app.get('/nikita_navrotski_gmail_com', (req, res) => {
     let y = req.query.y;
     
     if ((isNatural(x)&&isNatural(y)) == false || x == '' || y == '') return res.send('NaN')
-    l = lcm(x,y).toString()
+    l = lcm(x,y)
 
     return res.send(l)
 })
