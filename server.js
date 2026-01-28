@@ -3,7 +3,7 @@ const app = express()
 const port = 3000
 
 function isNatural(num){
-    if (num > 0 && num%1==0) {
+    if (num > 0 && num%1==0 && isNaN(num) == false) {
         return true;
     }
     return false;
@@ -31,9 +31,6 @@ app.get('/nikita_navrotski_gmail_com', (req, res) => {
     let x = req.query.x;
     let y = req.query.y;
 
-    // console.log(x, isNatural(x), x%1 == 0);
-    // console.log(y, isNatural(y));
-
     if (x === undefined || y === undefined || x=='' || y=='') {
         return res.send('NaN');
     }
@@ -41,7 +38,7 @@ app.get('/nikita_navrotski_gmail_com', (req, res) => {
     if (isNatural(x) == false || isNatural(y) == false) return res.send('NaN');
     
     // if ((isNatural(x)&&isNatural(y)) == false || x == '' || y == '') return res.send('NaN')
-    const l = BigInt(lcm(x,y)).toString()
+    const l = lcmBig(x,y).toString()
 
     return res.send(l)
 })
