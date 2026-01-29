@@ -8,13 +8,6 @@ function isNatural(num){
     }
     return false;
 }
-function gcd(a, b) {
-    return !b ? a : gcd(b, a % b);
-}
-
-function lcm(a, b) {
-    return (a * b) / gcd(a, b);   
-}
 
 function lcmBig(a, b) {
     const bigA = BigInt(a);
